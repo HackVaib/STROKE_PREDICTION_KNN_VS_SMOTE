@@ -33,28 +33,3 @@ We create two models:
 7. Apply SMOTE, train KNN again and evaluate
 8. Compare both results
 
-## Results
-
-### Without SMOTE
-
-- Accuracy: 0.8189
-- Classification Report:
-  - Class 0: Precision = 0.96, Recall = 0.84, F1 = 0.90
-  - Class 1: Precision = 0.16, Recall = 0.45, F1 = 0.23
-
-- Confusion Matrix:
-
-[[809 151]
-[ 34 28]]
-
-
-### With SMOTE
-
-- Accuracy: 0.94
-- Classification Report:
-- Class 0: Precision = 0.94, Recall = 1.00, F1 = 0.97
-- Class 1: Precision = 0.00, Recall = 0.00, F1 = 0.00
-
-- Confusion Matrix:
-[[960 0]
-[ 62 0]]
