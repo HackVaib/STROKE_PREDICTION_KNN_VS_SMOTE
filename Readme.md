@@ -33,3 +33,9 @@ We create two models:
 7. Apply SMOTE, train KNN again and evaluate
 8. Compare both results
 
+Results Summary
+Without SMOTE:
+Accuracy is high (~94%), but the model fails to detect any stroke cases (precision and recall for stroke = 0), showing poor performance on the minority class due to data imbalance.
+
+With SMOTE:
+Accuracy decreases (~82%), but detection of stroke cases improves significantly (precision ~16%, recall ~45%), making the model more effective in identifying minority class instances despite lower overall accuracy.
