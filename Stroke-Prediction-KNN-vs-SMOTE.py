@@ -16,10 +16,9 @@ df=pd.read_csv("healthcare-dataset-stroke-data.csv")
 #preprocessing and handling missing values
 df.drop('id',axis=1,inplace=True)
 
-#filling bmi nan values with mean
 df['bmi'].fillna(df['bmi'].mean(),inplace=True)
 
-#label encoding (categorical features handling)
+
 le=LabelEncoder()
 for col in df.select_dtypes(include='object').columns:
     df[col]=le.fit_transform(df[col])
@@ -27,10 +26,9 @@ for col in df.select_dtypes(include='object').columns:
 X=df.drop('stroke',axis=1)
 y=df['stroke']
 
-#Train/test split
+
 X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=42)
 
-#SCALING
 scaler=StandardScaler()
 X_train=scaler.fit_transform(X_train)
 X_test= scaler.transform(X_test)
@@ -47,11 +45,11 @@ print("CLASSIFICATION REPORT: ",classification_report(y_test,y_pred_plain))
 print("Confusion Matrix : ", confusion_matrix(y_test, y_pred_plain))
 
 
-#Class imbalance handling (SMOTE)
+#class imbalance handle with smote 
 sm= SMOTE(random_state=42)
 X_train_res, y_train_res = sm.fit_resample(X_train, y_train)
 
-#model with SMOTE
+#model with smote
 knn=KNeighborsClassifier(n_neighbors=5)
 knn.fit(X_train_res,y_train_res)
 y_pred=knn.predict(X_test)
